@@ -9,14 +9,14 @@ import SwiftUI
 
 import SwiftUI
 
-struct About_Page: View {
+struct AboutPage: View {
     var body: some View {
         NavigationStack {
             ScrollView {
                 
                 
                 VStack(alignment: .leading, spacing: 24) {
-                    // Title Section
+                    
                     VStack(alignment: .leading, spacing: 16) {
                         Text("What is Matter Hub?")
                             .font(.title)
@@ -27,12 +27,12 @@ MATTER Projects showcase community-driven initiatives designed to empower youth,
 
 This app is built to make that impact visible and accessible,providing a centralized space where communities, partners, and supporters can discover MATTER’s projects, track progress,and understand the real outcomes behind the work.                           
 """)
-                            .font(.body)
-                            .lineSpacing(4)
+                        .font(.body)
+                        .lineSpacing(4)
                     }
                     .padding(.horizontal)
                     
-                    // Mission Section
+                    
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Our Mission")
                             .font(.title)
@@ -44,7 +44,7 @@ This app is built to make that impact visible and accessible,providing a central
                     }
                     .padding(.horizontal)
                     
-                    // Contact Section
+                    
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Contact us")
                             .font(.title)
@@ -53,15 +53,13 @@ This app is built to make that impact visible and accessible,providing a central
                         VStack(alignment: .leading, spacing: 12) {
                             HStack(spacing: 12) {
                                 Image(systemName: "envelope.fill")
-                                    .foregroundColor(.blue)
                                     .frame(width: 24)
                                 Text("info@matter.org")
-                                    .font(.headline)
                             }
                             
                             HStack(spacing: 12) {
                                 Image(systemName: "phone.fill")
-                                    .foregroundColor(.blue)
+                                    .tint(Color.Orange)
                                     .frame(width: 24)
                                 Text("+1 201-500-2345")
                                     .font(.headline)
@@ -70,7 +68,6 @@ This app is built to make that impact visible and accessible,providing a central
                     }
                     .padding(.horizontal)
                     
-                    // Legal Section
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Legal & Privacy")
                             .font(.title)
@@ -104,7 +101,6 @@ This app is built to make that impact visible and accessible,providing a central
                     }
                     .padding(.horizontal)
                     
-                    // Acknowledgements Section
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Acknowledgements")
                             .font(.title)
@@ -115,8 +111,8 @@ This app is built to make that impact visible and accessible,providing a central
                         
                         Special thanks to the MCRI community for showing us what's possible when communication becomes clarity.
                         """)
-                            .font(.body)
-                            .lineSpacing(4)
+                        .font(.body)
+                        .lineSpacing(4)
                         
                         Text("Version 1.0.0")
                             .font(.headline)
@@ -128,7 +124,6 @@ This app is built to make that impact visible and accessible,providing a central
                     
                     .padding(.horizontal)
                     
-                    // Footer spacing
                     Spacer()
                         .frame(height: 20)
                 }
@@ -140,6 +135,6 @@ This app is built to make that impact visible and accessible,providing a central
 }
 
 #Preview {
-    About_Page()
+    AboutPage()
 }
 

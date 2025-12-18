@@ -11,7 +11,7 @@ struct FAQsView: View {
     @State private var searchText = ""
     @State private var expandedItems: Set<UUID> = []
     @State private var showWebsite = false
-    @State private var showMoreHelp = false // New State for More Help View
+    @State private var showMoreHelp = false
     
     struct FAQItem: Identifiable {
         let id = UUID()
@@ -58,7 +58,6 @@ struct FAQsView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                // Compact Header
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("FAQs")
@@ -83,7 +82,6 @@ struct FAQsView: View {
                 .padding(.horizontal)
                 .padding(.top)
                 
-                // Compact Search
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(.orange.opacity(0.7))
@@ -105,7 +103,6 @@ struct FAQsView: View {
                 .padding(.horizontal)
                 .padding(.vertical, 12)
                 
-                // FAQ List
                 if filteredFaqItems.isEmpty {
                     VStack(spacing: 16) {
                         Image(systemName: "questionmark.circle")
@@ -135,7 +132,6 @@ struct FAQsView: View {
                     }
                 }
                 
-                // Compact Footer (Updated)
                 VStack(spacing: 4) {
                     Text("Need more help?")
                         .font(.caption)
@@ -147,9 +143,9 @@ struct FAQsView: View {
                     }
                     .font(.caption.bold())
                     .foregroundColor(.orange)
-                    .padding(.bottom, 4) // Added padding to separate links
+                    .padding(.bottom, 4)
                     
-                    // NEW: Button to open MoreHelpView
+                    
                     Button("Ask Google or ChatGPT") {
                         showMoreHelp = true
                     }
@@ -162,14 +158,13 @@ struct FAQsView: View {
             .sheet(isPresented: $showWebsite) {
                 MatterWebsiteView()
             }
-            .sheet(isPresented: $showMoreHelp) { // New sheet for MoreHelpView
+            .sheet(isPresented: $showMoreHelp) {
                 AskQuestionsView()
             }
         }
     }
 }
 
-// Existing FAQCard and MatterWebsiteView structs remain the same:
 
 struct FAQCard: View {
     let item: FAQsView.FAQItem

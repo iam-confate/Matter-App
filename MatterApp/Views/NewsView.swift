@@ -8,14 +8,6 @@
 import SwiftUI
 
 
-struct NotificationItem: Identifiable {
-    let id = UUID()
-    let title: String
-    let message: String
-    let linkedInURL: URL
-}
-
-
 let sampleNotifications: [NotificationItem] = [
     NotificationItem(
         title: "New Job Alert!",
@@ -90,7 +82,7 @@ struct NotificationRowView: View {
                 Text("View on LinkedIn")
                     .font(.caption)
                   
-                    .foregroundColor(.orange)
+                    .foregroundColor(Color.Orange)
             }
         }
         .padding()

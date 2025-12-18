@@ -7,23 +7,18 @@
 
 import SwiftUI
 
-extension Color {
-  
-    static let customOrange = Color(red: 236/255, green: 137/255, blue: 37/255)
-}
-
 struct SettingsView: View {
-
+    
     @AppStorage("isDarkMode") private var darkModeEnabled = false
     @AppStorage("appLanguageCode") private var selectedLanguageCode: String = "en"
-
+    
     @State private var notificationsEnabled = true
     @State private var autoSyncEnabled = true
     @State private var preferredRoleDisplay = "Project Manager"
     @State private var showConfirmLogout = false
     @State private var cacheSize = "245 MB"
     @State private var showClearCacheAlert = false
-
+    
     let availableRoles = ["Student", "Facilitator", "Project Manager", "Donor", "Intern"]
     let availableLanguages = [
         ("English", "en"),
@@ -39,12 +34,12 @@ struct SettingsView: View {
             self.cacheSize = "42 KB"
         }
     }
-
+    
     private var dashboardDisplaySection: some View {
-        Section(header: Text("Theme & Display").foregroundColor(.customOrange)) {
+        Section(header: Text("Theme & Display").foregroundColor(Color.Orange)) {
             
             Toggle(isOn: $notificationsEnabled) {
-                SettingsIconRow(icon: "bell.badge.fill", title: "Enable Notifications", iconColor: .customOrange)
+                SettingsIconRow(icon: "bell.badge.fill", title: "Enable Notifications", iconColor: Color.Orange)
             }
             .tint(.orange)
             
@@ -53,23 +48,23 @@ struct SettingsView: View {
                     Text(name).tag(code)
                 }
             } label: {
-                SettingsIconRow(icon: "globe", title: "App Language", subtitle: availableLanguages.first(where: { $0.1 == selectedLanguageCode })?.0, iconColor: .customOrange)
+                SettingsIconRow(icon: "globe", title: "App Language", subtitle: availableLanguages.first(where: { $0.1 == selectedLanguageCode })?.0, iconColor: Color.Orange)
             }
             
             Toggle(isOn: $darkModeEnabled) {
-                SettingsIconRow(icon: "moon.fill", title: "Dark Mode", iconColor: .customOrange)
+                SettingsIconRow(icon: "moon.fill", title: "Dark Mode", iconColor: Color.Orange)
             }
-            .tint(.customOrange)
+            .tint(Color.Orange)
         }
     }
-
+    
     private var dataSyncSection: some View {
-        Section(header: Text("Data & Synchronization").foregroundColor(.customOrange)) {
+        Section(header: Text("Data & Synchronization").foregroundColor(Color.Orange)) {
             
             Toggle(isOn: $autoSyncEnabled) {
-                SettingsIconRow(icon: "arrow.triangle.2.circlepath", title: "Auto-Sync Data", iconColor: .customOrange)
+                SettingsIconRow(icon: "arrow.triangle.2.circlepath", title: "Auto-Sync Data", iconColor: Color.Orange)
             }
-            .tint(.customOrange)
+            .tint(Color.Orange)
             
             Button(action: { showClearCacheAlert = true }) {
                 
@@ -81,13 +76,13 @@ struct SettingsView: View {
             .foregroundColor(.primary)
         }
     }
-
+    
     private var supportInfoSection: some View {
         Group {
-            Section(header: Text("Support").foregroundColor(.customOrange)) {
+            Section(header: Text("Support").foregroundColor(Color.Orange)) {
                 
                 NavigationLink(destination: FAQsView()) {
-                    SettingsIconRow(icon: "questionmark.circle.fill", title: "Help Center & FAQ", iconColor: .customOrange)
+                    SettingsIconRow(icon: "questionmark.circle.fill", title: "Help Center & FAQ", iconColor: Color.Orange)
                 }
                 
             }
@@ -95,8 +90,7 @@ struct SettingsView: View {
             HStack {
                 Spacer()
                 VStack {
-                    Text("Facilitator Dashboard v1.0.0")
-                    Text("© 2025 Matter Hub")
+                    Text("MatterApp v1.0")
                 }
                 .font(.caption2)
                 .fontWeight(.bold)
@@ -122,7 +116,7 @@ struct SettingsView: View {
                     Button("Done") {
                     }
                     .fontWeight(.semibold)
-                    .foregroundColor(.customOrange)
+                    .foregroundColor(Color.Orange)
                 }
             }
             .alert("Log Out", isPresented: $showConfirmLogout) {
