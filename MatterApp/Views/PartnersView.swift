@@ -7,45 +7,6 @@
 
 import SwiftUI
 
-extension Color {
-   
-    static let customsOrange = Color(red: 236/255, green: 137/255, blue: 37/255)
-}
-
-
-struct StatCard: View {
-    let title: String
-    let value: String
-    let color: Color
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title)
-                .font(.caption)
-                .foregroundColor(.secondary)
-            
-            Text(value)
-                .font(.title2)
-                .fontWeight(.bold)
-                .foregroundColor(color)
-        }
-        .padding(16)
-        .frame(maxWidth: .infinity)
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: .black.opacity(0.05), radius: 3, x: 0, y: 1)
-    }
-}
-
-
-
-struct Partner: Identifiable {
-    let id = UUID()
-    let name: String
-    let logoName: String
-    let description: String
-}
-
 struct PartnersView: View {
     @State private var selectedPartner: Partner?
     @State private var showDetail = false
@@ -76,10 +37,10 @@ struct PartnersView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 10) {
-               
+                
                 HStack(spacing: 12) {
-                    StatCard(title: "Total Employees", value: "24", color: .customOrange)
-                    StatCard(title: "Active Interns", value: "8", color: .customOrange) // Now defined
+                    StatCard(title: "Total Employees", value: "24", color: Color.Orange)
+                    StatCard(title: "Active Interns", value: "8", color: Color.Orange)
                 }
                 .padding()
                 
@@ -97,7 +58,7 @@ struct PartnersView: View {
                     .padding(.bottom, 20)
                 }
                 
-                // Footer
+                
                 VStack(spacing: 8) {
                     Text("Strategic Partnerships")
                         .font(.caption)
@@ -127,14 +88,12 @@ struct PartnerCard: View {
     var body: some View {
         Button(action: action) {
             VStack(spacing: 12) {
-                // Logo
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 12)
                         .fill(Color.orange.opacity(0.1))
                         .frame(height: 100)
                     
-                    // Note: This Image(partner.logoName) assumes you have image assets
-                    // named "matterLogo", "jamfLogo", "mainslLogo", and "Tradition".
                     Image(partner.logoName)
                         .resizable()
                         .scaledToFit()
@@ -142,7 +101,7 @@ struct PartnerCard: View {
                         .foregroundColor(.orange)
                 }
                 
-                // Name
+                
                 Text(partner.name)
                     .font(.subheadline.bold())
                     .foregroundColor(.primary)
@@ -150,7 +109,7 @@ struct PartnerCard: View {
                     .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
                 
-                // Description
+                
                 Text(partner.description)
                     .font(.caption2)
                     .foregroundColor(.secondary)
@@ -175,7 +134,6 @@ struct PartnerDetailView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    // Header
                     VStack(spacing: 16) {
                         Image(partner.logoName)
                             .resizable()
@@ -195,7 +153,7 @@ struct PartnerDetailView: View {
                     }
                     .padding(.top, 20)
                     
-                    // Content
+                    
                     VStack(alignment: .leading, spacing: 16) {
                         if partner.name == "MATTER" {
                             MatterContent()
@@ -209,7 +167,7 @@ struct PartnerDetailView: View {
                     }
                     .padding(.horizontal)
                     
-                    // Representatives
+                    
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Key Representatives")
                             .font(.headline)
@@ -224,11 +182,10 @@ struct PartnerDetailView: View {
                     .cornerRadius(12)
                     .padding(.horizontal)
                     
-                    // Website Link
+                    
                     if let url = websiteURL(for: partner.name) {
                         Button(action: {
-                            // Note: UIApplication.shared.open requires the AppKit/UIKit environment
-                            // and needs to be used carefully in SwiftUI previews, but is correct for deployment.
+                            
                             UIApplication.shared.open(url)
                         }) {
                             Label("Visit Website", systemImage: "safari.fill")
@@ -294,13 +251,6 @@ struct PartnerDetailView: View {
     }
 }
 
-struct Representative: Identifiable {
-    let id = UUID()
-    let name: String
-    let role: String
-    let linkedin: String
-}
-
 struct RepresentativeRow: View {
     let representative: Representative
     
@@ -332,7 +282,7 @@ struct RepresentativeRow: View {
     }
 }
 
-// Compact Content Views
+
 struct MatterContent: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {

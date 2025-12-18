@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MatterCareerInstituteView: View {
-    // Placeholder data for the long description
+   
     let mcriDescription = """
     Matter Career Readiness Institute (MCRI) is dedicated to equipping individuals
     with the essential skills and knowledge required to succeed in today's
@@ -35,33 +35,31 @@ struct MatterCareerInstituteView: View {
 
     var body: some View {
         NavigationStack {
-            // The ScrollView now contains ALL content below the navigation bar
+          
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    // 1. Image Section (Orange Placeholder)
                     Image("MCRI")
                         .resizable()
                         .frame(height: 250)
-                        .padding([.horizontal, .top]) // Padding on sides and top of the image
-                        .padding(.bottom, 20) // Separator space before the text
+                        .padding([.horizontal, .top])
+                        .padding(.bottom, 20)
 
-                    // 2. Content Section
                     VStack(alignment: .leading, spacing: 15) {
                         Text("About the Institute")
                             .font(.title2)
                             .fontWeight(.bold)
 
-                        // Main Description Text
+                      
                         Text(mcriDescription)
                             .font(.body)
                             .foregroundColor(.black)
                             .lineSpacing(4)
                     }
                     .padding(.horizontal)
-                    .padding(.bottom, 20) // Padding at the end of the scrollable content
+                    .padding(.bottom, 20)
                 }
             }
-            // Set the navigation title
+          
             .navigationTitle("Matter Career Readiness Institute")
             .navigationBarTitleDisplayMode(.inline)
         }

@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5B5C65AF2EF442F200F7FFD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B5C65A42EF442F200F7FFD3 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5B432D1C2EF042E0007F4FB4 /* MatterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B5C65A42EF442F200F7FFD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,8 +37,8 @@
 		5B432D132EF042E0007F4FB4 = {
 			isa = PBXGroup;
 			children = (
-				5B432D1E2EF042E0007F4FB4 /* MatterApp */,
 				5B432D1D2EF042E0007F4FB4 /* Products */,
+				5B432D1E2EF042E0007F4FB4 /* MatterApp */,
 			);
 			sourceTree = "<group>";
 		};
@@ -41,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				5B432D1C2EF042E0007F4FB4 /* MatterApp.app */,
+				5B5C65A42EF442F200F7FFD3 /* Assets.xcassets */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5C65AF2EF442F200F7FFD3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,12 +31,11 @@ struct HomeView: View {
         GridItem(.flexible())
     ]
     
-    // ✅ FIX: Removed the hardcoded 'fixedDate' logic to allow the date to be dynamic.
+    
     var currentDateString: String {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
         formatter.timeZone = TimeZone(identifier: "Africa/Harare")
-        // Use the current date directly
         return formatter.string(from: Date())
     }
     
@@ -87,7 +86,7 @@ struct HomeView: View {
                         }
                         .padding(.horizontal)
                         .padding(.top, 5)
-                        // Spacer for vertical gap
+                        
                         Spacer()
                             .frame(height: 20)
                         
@@ -103,7 +102,7 @@ struct HomeView: View {
                                     case "FAQs":
                                         FAQsView()
                                     case "About The App":
-                                        About_Page()
+                                        AboutPage()
                                     default:
                                         DetailView(title: action.title)
                                     }
@@ -134,7 +133,6 @@ struct HomeView: View {
                 
                 HStack(spacing: 0) {
                     NavigationLink {
-                        // This links back to the current HomeView, or you might link to a distinct Home tab content view
                         Text("Home View")
                     } label: {
                         FooterButtonWithLabel(icon: "house.fill", label: "Home", isActive: true)
@@ -155,7 +153,6 @@ struct HomeView: View {
                                 .clipShape(Circle())
                                 .shadow(radius: 5)
                                 .offset(y: -25)
-                            // News Label
                             Text("News")
                                 .font(.caption2)
                                 .foregroundColor(.black)
@@ -163,7 +160,6 @@ struct HomeView: View {
                         }
                     }
                     .frame(maxWidth: .infinity)
-                    // Settings Button
                     NavigationLink {
                         SettingsView()
                     } label: {
